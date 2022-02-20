@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "138961907149",
+    "project_id": "fluttertask-45b7e",
+    "storage_bucket": "fluttertask-45b7e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138961907149:android:41a0dac1d7ee3eb95da884",
+        "android_client_info": {
+          "package_name": "apponim.athlontask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138961907149-qf8pn27k6q6umd7cqdmg2873g5khqqmg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfpeW8kLcmRvJl9M4D3b5_QaVCT4i6n0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "138961907149-qf8pn27k6q6umd7cqdmg2873g5khqqmg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "138961907149-alteq055n9iued2rag7a53leh5g8bj5m.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "apponim.athlontask"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
