@@ -6,6 +6,7 @@ import 'package:athlon_task/presentation/widgets/email/email_text_form.dart';
 import 'package:athlon_task/presentation/widgets/password/password_text_form.dart';
 import 'package:athlon_task/shared/constants/colors.dart';
 import 'package:athlon_task/shared/constants/dimens.dart';
+import 'package:athlon_task/shared/constants/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       EmailTextFormField(readOnly: true),
       PasswordTextFormField(
         enabled: false,
-        bottomPadding: 0.0,
+        bottomPadding: Dimens.zero,
       ),
       ChangeCredentialsButton(),
     ];
@@ -36,16 +37,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
       SizedBox(
         height: 160.0,
         child: Center(
-          child: Text('You are not logged in',
-              style: TextStyle(
-                fontSize: 28.0,
-              )),
+          child: Text('You are not logged in', style: AthlonTypo.largeStyle),
         ),
       ),
       EmailTextFormField(readOnly: true, enabled: false),
       PasswordTextFormField(
         enabled: false,
-        bottomPadding: 0.0,
+        bottomPadding: Dimens.zero,
       ),
       ChangeCredentialsButton(),
     ];
@@ -59,7 +57,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           brightness: Brightness.dark,
           title: Text(
             'Settings',
-            style: TextStyle(fontSize: 16.0, color: AppColors.white),
+            style: AthlonTypo.defaultStyle.copyWith(color: AppColors.white),
           ),
         ),
         body: SafeArea(

@@ -1,6 +1,7 @@
-import 'package:athlon_task/data/backend/profile_service.dart';
 import 'package:athlon_task/data/backend/plugins/dio_http_service.dart';
 import 'package:athlon_task/data/backend/plugins/http_service_interface.dart';
+import 'package:athlon_task/data/backend/profile_service.dart';
+import 'package:athlon_task/data/backend/utils/consts/network.dart';
 import 'package:athlon_task/data/local/database_provider.dart';
 import 'package:athlon_task/data/repositories/profile_repository.dart';
 import 'package:athlon_task/presentation/screens/profile/widgets/avatar/avatar_state.dart';
@@ -20,7 +21,7 @@ class AvatarProvider extends StatelessWidget {
       providers: [
         Provider<HttpServiceInterface>(
             create: (_) => DioHttpService(
-                  'https://something.com',
+                  NetworkConst.hostUrl,
                 )),
         ProxyProvider<HttpServiceInterface, ProfileService>(
           update: (
@@ -30,7 +31,7 @@ class AvatarProvider extends StatelessWidget {
           ) =>
               ProfileService(
                   httpService: DioHttpService(
-            'https://something.com',
+            NetworkConst.hostUrl,
           )),
         ),
         ProxyProvider<HttpServiceInterface, ProfileRepository>(
@@ -44,8 +45,7 @@ class AvatarProvider extends StatelessWidget {
         ChangeNotifierProxyProvider<ProfileRepository, AvatarState>(
             create: (context) => AvatarState(
                 customerRepository: context.read<ProfileRepository>()),
-            update: (BuildContext context,
-                    ProfileRepository customerRepository,
+            update: (BuildContext context, ProfileRepository customerRepository,
                     AvatarState? avatarModel) =>
                 AvatarState(customerRepository: customerRepository)),
       ],

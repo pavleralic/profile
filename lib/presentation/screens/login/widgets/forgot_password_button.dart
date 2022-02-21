@@ -1,4 +1,5 @@
 import 'package:athlon_task/shared/constants/colors.dart';
+import 'package:athlon_task/shared/constants/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ class ForgotPasswordButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(
         child: Text('Forgot Password',
-            style: TextStyle(fontSize: 16.0, color: AppColors.blue)),
+            style: AthlonTypo.defaultStyle.copyWith(color: AppColors.blue)),
         onPressed: () {});
   }
 }

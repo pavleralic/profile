@@ -8,6 +8,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginState extends ChangeNotifier {
+  LoginState(
+      {required AuthService authService,
+      required EmailTextFormFieldState emailModel,
+      required PasswordTextFormFieldState passwordModel,
+      required LocalStorage storage})
+      : _authService = authService,
+        _emailState = emailModel,
+        _passwordState = passwordModel,
+        _storage = storage;
+
   final AuthService _authService;
   final EmailTextFormFieldState _emailState;
   final PasswordTextFormFieldState _passwordState;
@@ -20,16 +30,6 @@ class LoginState extends ChangeNotifier {
     notifyListeners();
   }
 
-  LoginState(
-      {required AuthService authService,
-      required EmailTextFormFieldState emailModel,
-      required PasswordTextFormFieldState passwordModel,
-      required LocalStorage storage})
-      : _authService = authService,
-        _emailState = emailModel,
-        _passwordState = passwordModel,
-        _storage = storage;
-
   void login() async {
     if (!_emailState.isEmailValid()) return;
     if (!_passwordState.isPasswordValid()) return;
@@ -37,12 +37,11 @@ class LoginState extends ChangeNotifier {
 
     final email = _emailState.email;
     final password = _passwordState.password;
-
     await _storage.save(key: Preferences.email, value: email);
     await _storage.save(key: Preferences.password, value: password);
     try {
-      await _storage.save(key: Preferences.isLoggedIn, value: "loggedIn");
       await _authService.login(email: email, password: password);
+      await _storage.save(key: Preferences.isLoggedIn, value: "loggedIn");
       return;
     } on FirebaseAuthException catch (e) {
       if (e.code == 'user-not-found') {

@@ -4,6 +4,9 @@ class Dimens {
   /// `0.0` px
   static const double zero = 0.0;
 
+  /// 4XS `1.0` px
+  static const double proton = 1.0;
+
   /// 2XS `4.0` px
   static const double atom = 4.0;
 

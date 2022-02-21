@@ -1,6 +1,7 @@
-import 'package:athlon_task/presentation/screens/profile/widgets/avatar/avatar_state.dart';
 import 'package:athlon_task/presentation/screens/profile/widgets/avatar/avatar_provider.dart';
+import 'package:athlon_task/presentation/screens/profile/widgets/avatar/avatar_state.dart';
 import 'package:athlon_task/shared/constants/dimens.dart';
+import 'package:athlon_task/shared/constants/styles.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
 
@@ -8,8 +9,7 @@ class AvatarSection extends StatelessWidget {
   Widget _buildHeader() {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: Dimens.medium),
-      child: Text('Avatar',
-          style: TextStyle(fontSize: 16.0, color: Color(0xFf798393))),
+      child: Text('Avatar', style: AthlonTypo.lightStyle),
     );
   }
 
@@ -51,13 +51,12 @@ class AvatarSection extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                        state.customer?.profilePicturePath?.split('/').last ?? '',
-                        style:
-                            TextStyle(fontSize: 16.0, color: Color(0xFF30343B))),
+                        state.customer?.profilePicturePath?.split('/').last ??
+                            '',
+                        style: AthlonTypo.defaultStyle.copyWith()),
                     SizedBox(height: Dimens.atom),
                     Text('Uploaded ${state.customer?.profilePictureUploadDate}',
-                        style:
-                            TextStyle(fontSize: 14.0, color: Color(0xFf798393)))
+                        style: AthlonTypo.lightStyle.copyWith(fontSize: 14.0))
                   ],
                 )
               ],
